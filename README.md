@@ -1,17 +1,19 @@
-# Aprofundamento de Formação — thumbnails reais
+# Atos dos Apóstolos — V3
 
-Esta versão usa imagens representativas reais das obras:
-- pôsteres oficiais/promocionais para filmes e minisséries;
-- arte do provedor para séries/documentários;
-- capas reais da editora para livros;
-- screenshot oficial do aplicativo Catho+.
+Versão coerente e fechada do miniaplicativo.
 
-As imagens são referenciadas por URL em `conteudos.csv`, na coluna `thumbnail_url`.
-Há fallback visual automático se uma fonte externa estiver temporariamente indisponível.
+Mudanças:
+- cabeçalho temático de Atos, gerado em SVG/CSS;
+- ícones nas seções Filmes, Séries, Documentários e Leituras;
+- thumbnails reais via CDN/proxy de imagem;
+- HTML e CSV sincronizados;
+- cache-busting no carregamento do CSV;
+- fallback visual caso um thumbnail falhe.
 
-Deploy:
-1. substitua `index.html`;
-2. substitua `conteudos.csv`;
-3. faça Commit changes.
+IMPORTANTE:
+Substitua NO GITHUB os arquivos `index.html` E `conteudos.csv` juntos.
+Não misture esta versão com arquivos anteriores.
 
-Não é necessária pasta `assets`.
+Depois do commit, faça recarga forçada no navegador:
+Windows: Ctrl + F5
+Mac: Cmd + Shift + R
