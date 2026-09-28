@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Aprofundamento de Formação</title>
+  <meta name="description" content="Filmes, séries, documentários e leituras para aprofundamento de formações.">
+  <style>
+    :root{
+      --bg:#f7f6f2;--card:#fff;--text:#202224;--muted:#697076;--line:#dedfd9;
+      --accent:#334f42;--accent2:#6f857a;--soft:#eef1ed;--max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+    header{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.42) 100%);border-bottom:1px solid var(--line);padding:46px 0 28px}
+    .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+    h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:.98;letter-spacing:-.05em;margin:10px 0 14px;max-width:900px}
+    .lead{font-size:clamp(1rem,2vw,1.15rem);line-height:1.6;color:var(--muted);max-width:800px;margin:0}
+    .controls{display:grid;grid-template-columns:minmax(240px,1.4fr) repeat(5,auto);gap:9px;align-items:center;margin-top:26px}
+    select,button{font:inherit;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:999px;padding:11px 15px;min-height:44px}
+    select{width:100%}
+    button{cursor:pointer}
+    button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .shareline{margin-top:14px;color:var(--muted);font-size:.84rem}
+    main{padding:30px 0 68px}
+    .section{scroll-margin-top:20px}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:28px 0 14px}
+    .section-head h2{font-size:1.5rem;margin:0;letter-spacing:-.02em}
+    .section-head p{margin:0;color:var(--muted);font-size:.9rem}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:15px}
+    .card{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;min-height:245px;box-shadow:0 8px 25px rgba(30,35,32,.035)}
+    .card.featured{grid-column:span 12;min-height:230px;background:linear-gradient(135deg,#fff 0%,var(--soft) 100%);border-color:#d7ddd8}
+    .meta{display:flex;gap:7px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.81rem}
+    .pill{border:1px solid var(--line);border-radius:999px;padding:4px 8px;background:#fff}
+    .featured .pill:first-child{border-color:var(--accent2);color:var(--accent)}
+    .card h3{font-size:1.2rem;line-height:1.25;margin:13px 0 7px;letter-spacing:-.015em}
+    .desc{color:var(--muted);line-height:1.58;margin:13px 0}
+    .why{font-size:.93rem;line-height:1.5;margin-top:auto;padding-top:6px}
+    .why strong{color:var(--accent)}
+    .action{display:inline-flex;align-items:center;gap:6px;margin-top:16px;text-decoration:none;font-weight:750;color:var(--accent)}
+    .action:hover{text-decoration:underline}
+    .empty{padding:28px;border:1px dashed var(--line);border-radius:16px;color:var(--muted)}
+    footer{border-top:1px solid var(--line);padding:24px 0 36px;color:var(--muted);font-size:.85rem}
+    @media(max-width:900px){.controls{grid-template-columns:1fr 1fr 1fr}.controls select{grid-column:1/-1}}
+    @media(max-width:720px){
+      header{padding-top:32px}
+      .controls{grid-template-columns:1fr 1fr}
+      .controls select{grid-column:1/-1}
+      .card,.card.featured{grid-column:span 12}
+      .section-head{align-items:flex-start;flex-direction:column;gap:5px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Aprofundamento de Formação</div>
+    <h1 id="page-title">Carregando…</h1>
+    <p class="lead" id="page-subtitle">Uma seleção de conteúdos para continuar a formação.</p>
+
+    <div class="controls">
+      <select id="context-select" aria-label="Selecione uma formação"></select>
+      <button class="filter active" data-type="Todos">Todos</button>
+      <button class="filter" data-type="Filme">Filmes</button>
+      <button class="filter" data-type="Série">Séries</button>
+      <button class="filter" data-type="Documentário">Documentários</button>
+      <button class="filter" data-type="Leitura">Leituras</button>
+    </div>
+    <div class="shareline">Você pode compartilhar diretamente esta formação: a URL mantém o contexto selecionado.</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="content"></div>
+</main>
+
+<footer>
+  <div class="wrap">Conteúdo de apoio para formação. Recursos externos podem exigir assinatura ou ter disponibilidade regional.</div>
+</footer>
+
+<script>
+const state={rows:[],context:null,type:"Todos"};
+const typeOrder=["Filme","Série","Documentário","Leitura"];
+
+function parseCSV(text){
+  text=text.replace(/^\uFEFF/,"");
+  const rows=[];let row=[],field="",q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i],n=text[i+1];
+    if(c=='"'&&q&&n=='"'){field+='"';i++}
+    else if(c=='"'){q=!q}
+    else if(c==','&&!q){row.push(field);field=""}
+    else if((c=='\n'||c=='\r')&&!q){
+      if(c=='\r'&&n=='\n')i++;
+      row.push(field);field="";
+      if(row.some(v=>v.trim()!==""))rows.push(row);
+      row=[];
+    }else field+=c;
+  }
+  if(field.length||row.length){row.push(field);rows.push(row)}
+  const head=rows.shift().map(x=>x.trim());
+  return rows.map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||"").trim()])));
+}
+function esc(s=""){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function contextMap(){
+  const m=new Map();
+  state.rows.forEach(r=>{if(!m.has(r.contexto_id))m.set(r.contexto_id,{nome:r.contexto_nome,subtitulo:r.contexto_subtitulo})});
+  return m;
+}
+function requestedContext(){
+  const p=new URLSearchParams(location.search);
+  return p.get("contexto");
+}
+function updateUrl(){
+  const u=new URL(location.href);
+  u.searchParams.set("contexto",state.context);
+  history.replaceState(null,"",u);
+}
+function card(r){
+  const feat=(r.destaque||"").toLowerCase()==="sim"?" featured":"";
+  const bits=[r.ano,r.duracao,r.autor_produtor].filter(Boolean).map(v=>`<span>${esc(v)}</span>`).join("<span>•</span>");
+  const link=r.url?`<a class="action" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Abrir recurso →</a>`:"";
+  return `<article class="card${feat}">
+    <div class="meta"><span class="pill">${esc(r.tipo)}</span>${feat?'<span class="pill">Destaque</span>':""}</div>
+    <h3>${esc(r.titulo)}</h3>
+    <div class="meta">${bits}</div>
+    <p class="desc">${esc(r.descricao)}</p>
+    <div class="why"><strong>Por que vale a pena:</strong> ${esc(r.porque)}</div>
+    ${link}
+  </article>`;
+}
+function render(){
+  const ctx=contextMap().get(state.context);
+  document.getElementById("page-title").textContent=ctx?.nome||"Aprofundamento de Formação";
+  document.getElementById("page-subtitle").textContent=ctx?.subtitulo||"Uma seleção de conteúdos para continuar a formação.";
+  document.title=`${ctx?.nome||"Formação"} | Aprofundamento de Formação`;
+
+  const rows=state.rows.filter(r=>r.contexto_id===state.context)
+    .filter(r=>state.type==="Todos"||r.tipo===state.type)
+    .sort((a,b)=>Number(a.ordem||999)-Number(b.ordem||999));
+
+  const groups=state.type==="Todos"?typeOrder:[state.type];
+  const labels={
+    "Filme":["Filmes","Narrativas cinematográficas para entrar na história."],
+    "Série":["Séries","Conteúdos mais longos para acompanhar personagens e acontecimentos."],
+    "Documentário":["Documentários","Contexto histórico, geográfico e doutrinal."],
+    "Leitura":["Leituras","Textos para voltar à fonte e aprofundar a formação."]
+  };
+  const html=groups.map(type=>{
+    const items=rows.filter(r=>r.tipo===type);
+    if(!items.length)return "";
+    return `<section class="section">
+      <div class="section-head"><h2>${labels[type][0]}</h2><p>${labels[type][1]}</p></div>
+      <div class="grid">${items.map(card).join("")}</div>
+    </section>`;
+  }).join("");
+  document.getElementById("content").innerHTML=html||'<div class="empty">Nenhum conteúdo encontrado.</div>';
+}
+async function load(){
+  const res=await fetch("conteudos.csv",{cache:"no-store"});
+  if(!res.ok)throw new Error("Falha ao carregar conteudos.csv");
+  state.rows=parseCSV(await res.text());
+  const contexts=contextMap();
+  const sel=document.getElementById("context-select");
+  sel.innerHTML=[...contexts].map(([id,v])=>`<option value="${esc(id)}">${esc(v.nome)}</option>`).join("");
+  const req=requestedContext();
+  state.context=contexts.has(req)?req:[...contexts.keys()][0];
+  sel.value=state.context;
+  updateUrl();
+  sel.addEventListener("change",e=>{state.context=e.target.value;updateUrl();render()});
+  document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");state.type=b.dataset.type;render();
+  }));
+  render();
+}
+load().catch(err=>{
+  console.error(err);
+  document.getElementById("page-title").textContent="Aprofundamento de Formação";
+  document.getElementById("content").innerHTML='<div class="empty">Não foi possível carregar os conteúdos. Verifique se <strong>conteudos.csv</strong> está na mesma pasta do <strong>index.html</strong>.</div>';
+});
+</script>
+</body>
+</html>
