@@ -1,19 +1,12 @@
-# Atos dos Apóstolos — V3
+# Atos dos Apóstolos — V4
 
-Versão coerente e fechada do miniaplicativo.
+Refinamentos:
+- assinatura discreta no rodapé: Via Cordis Content Engine;
+- manutenção do texto do rodapé;
+- ícones temáticos à esquerda dos títulos de seção;
+- refinamento de tipografia, cores e acabamento;
+- fundo creme preservado.
 
-Mudanças:
-- cabeçalho temático de Atos, gerado em SVG/CSS;
-- ícones nas seções Filmes, Séries, Documentários e Leituras;
-- thumbnails reais via CDN/proxy de imagem;
-- HTML e CSV sincronizados;
-- cache-busting no carregamento do CSV;
-- fallback visual caso um thumbnail falhe.
-
-IMPORTANTE:
-Substitua NO GITHUB os arquivos `index.html` E `conteudos.csv` juntos.
-Não misture esta versão com arquivos anteriores.
-
-Depois do commit, faça recarga forçada no navegador:
-Windows: Ctrl + F5
-Mac: Cmd + Shift + R
+Para deploy:
+substitua `index.html` e `conteudos.csv` juntos.
+Depois faça recarga forçada no navegador.

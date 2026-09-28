@@ -7,34 +7,68 @@
 <title>Aprofundamento de Formação</title>
 <style>
 :root{
-  --bg:#f6f1e8;--paper:#fffdf9;--card:#fff;--text:#28251f;--muted:#746e65;
-  --line:#e0d9ce;--accent:#43574e;--gold:#a88958;--ink:#6c5a47;
-  --shadow:0 8px 26px rgba(58,49,39,.055);--max:1060px
+  --bg:#f6f1e8;
+  --paper:#fffdf9;
+  --card:#fffefa;
+  --text:#2c261f;
+  --muted:#6f685e;
+  --line:#dfd7cb;
+  --accent:#44584f;
+  --accent-dark:#32453d;
+  --gold:#a88958;
+  --gold-soft:#ceb488;
+  --ink:#5f5345;
+  --shadow:0 8px 26px rgba(58,49,39,.055);
+  --max:1060px
 }
 *{box-sizing:border-box;min-width:0}
 html{overflow-x:hidden;scroll-behavior:smooth}
-body{margin:0;overflow-x:hidden;background:var(--bg);color:var(--text);
-font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{color:inherit;text-decoration:none}.wrap{width:100%;max-width:var(--max);margin:auto;padding:0 20px}
+body{
+  margin:0;overflow-x:hidden;background:var(--bg);color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--max);margin:auto;padding:0 20px}
 
-/* thematic hero */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
-background:linear-gradient(180deg,#fffdf9 0%,#f8f3ea 100%)}
-.hero:after{content:"";position:absolute;inset:auto -5% -80px 38%;height:240px;
-background:
-radial-gradient(ellipse at center,transparent 58%,rgba(105,88,66,.10) 59%,transparent 61%),
-radial-gradient(ellipse at center,transparent 69%,rgba(105,88,66,.08) 70%,transparent 72%);
-transform:rotate(-7deg);pointer-events:none}
-.hero-inner{position:relative;z-index:2;padding:37px 0 27px;display:grid;
-grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:center}
-.eyebrow{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800;color:var(--accent)}
-h1{margin:8px 0 8px;font:700 clamp(2.2rem,6vw,4.2rem)/1 Georgia,"Times New Roman",serif;letter-spacing:-.045em}
-.lead{margin:0;max-width:700px;color:var(--muted);line-height:1.52;font-size:.98rem}
-.context-row{margin-top:17px}
-select{width:100%;max-width:420px;border:1px solid var(--line);border-radius:13px;background:#fff;padding:12px 14px;font:inherit}
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,255,255,.88), rgba(255,255,255,0) 34%),
+    linear-gradient(180deg,#fffdf9 0%,#f8f3ea 100%);
+}
+.hero:after{
+  content:"";position:absolute;inset:auto -5% -80px 38%;height:240px;
+  background:
+    radial-gradient(ellipse at center,transparent 58%,rgba(105,88,66,.10) 59%,transparent 61%),
+    radial-gradient(ellipse at center,transparent 69%,rgba(105,88,66,.08) 70%,transparent 72%);
+  transform:rotate(-7deg);pointer-events:none
+}
+.hero-inner{
+  position:relative;z-index:2;padding:40px 0 28px;display:grid;
+  grid-template-columns:minmax(0,1fr) 260px;gap:28px;align-items:center
+}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:800;color:var(--accent);margin-bottom:6px
+}
+h1{
+  margin:0 0 10px;
+  font:700 clamp(2.35rem,6vw,4.3rem)/0.98 Georgia, "Times New Roman", serif;
+  letter-spacing:-.05em;color:#231f1a
+}
+.lead{
+  margin:0;max-width:700px;color:var(--muted);line-height:1.58;font-size:1rem
+}
+.context-row{margin-top:18px}
+select{
+  width:100%;max-width:430px;border:1px solid var(--line);border-radius:13px;background:#fff;
+  padding:12px 14px;font:inherit;color:var(--text);box-shadow:0 1px 0 rgba(255,255,255,.6) inset
+}
 
-/* Inline thematic Acts illustration */
-.acts-mark{height:200px;position:relative;opacity:.9}
+/* Thematic Acts illustration */
+.acts-mark{height:206px;position:relative;opacity:.92}
 .acts-mark svg{width:100%;height:100%;display:block}
 .acts-mark .route{stroke:var(--gold);stroke-width:2;stroke-dasharray:3 6;fill:none}
 .acts-mark .sea{stroke:#70847b;stroke-width:1.3;fill:none;opacity:.45}
@@ -42,15 +76,34 @@ select{width:100%;max-width:420px;border:1px solid var(--line);border-radius:13p
 .acts-mark .label{font:600 9px Inter,Arial,sans-serif;fill:#776c5f}
 .acts-mark .cross{stroke:var(--accent);stroke-width:2.5}
 
-main{padding:23px 0 62px}
-.start{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:24px}
-.start-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--accent)}
-.start h2{margin:5px 0;font:700 1.45rem Georgia,"Times New Roman",serif}
-.start>p{margin:0;color:var(--muted);line-height:1.5;font-size:.92rem}
-.start-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:15px}
-.start-card{display:flex;gap:11px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px;transition:.15s}
+/* Main */
+main{padding:24px 0 62px}
+
+.start{
+  background:var(--paper);border:1px solid var(--line);border-radius:21px;padding:19px;
+  box-shadow:var(--shadow);margin-bottom:24px
+}
+.start-label{
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:var(--accent)
+}
+.start h2{
+  margin:5px 0 6px;font:700 1.5rem/1.1 Georgia, "Times New Roman", serif;color:#27211a
+}
+.start>p{
+  margin:0;color:var(--muted);line-height:1.55;font-size:.93rem
+}
+.start-items{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:15px
+}
+.start-card{
+  display:flex;gap:11px;align-items:center;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:9px;transition:.15s
+}
 .start-card:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
-.start-card strong{display:block;font-size:.88rem;line-height:1.22}.start-card span{display:block;color:var(--muted);font-size:.74rem;margin-top:3px}
+.start-card strong{
+  display:block;font-size:.89rem;line-height:1.22;color:#2c261f
+}
+.start-card span{display:block;color:var(--muted);font-size:.74rem;margin-top:3px}
 
 .media-box{position:relative;background:#eee8de;overflow:hidden;flex:0 0 auto}
 .mini-media{width:62px;height:78px;border-radius:8px}
@@ -58,165 +111,319 @@ main{padding:23px 0 62px}
 .media-box img{width:100%;height:100%;display:block;object-fit:cover;background:#eee8de}
 .media-box.reading img{object-fit:contain;padding:5px;background:#f2ede5}
 .media-box.app img{object-fit:cover}
-.fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;
-padding:10px;background:linear-gradient(145deg,#f6f0e7,#ddd3c4);color:#655b50;font:700 .68rem/1.3 Georgia,"Times New Roman",serif}
-.media-box.failed .fallback{display:flex}.media-box.failed img{display:none}
+.fallback{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;
+  padding:10px;background:linear-gradient(145deg,#f6f0e7,#ddd3c4);color:#655b50;
+  font:700 .68rem/1.3 Georgia,"Times New Roman",serif
+}
+.media-box.failed .fallback{display:flex}
+.media-box.failed img{display:none}
 
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 17px;position:sticky;top:0;z-index:10;
-background:rgba(246,241,232,.96);backdrop-filter:blur(8px);padding:9px 0}
-.filter{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font:inherit;font-size:.87rem;cursor:pointer}
+/* Filters */
+.filters{
+  display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;position:sticky;top:0;z-index:10;
+  background:rgba(246,241,232,.96);backdrop-filter:blur(8px);padding:10px 0
+}
+.filter{
+  border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;
+  font:inherit;font-size:.88rem;cursor:pointer;color:var(--ink)
+}
 .filter.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-.section{margin-top:29px}
-.section-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:12px}
-.section-title{display:flex;align-items:center;gap:10px}
-.section-icon{width:35px;height:35px;border:1px solid var(--line);border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--accent)}
-.section-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.section-head h2{margin:0;font:700 1.45rem Georgia,"Times New Roman",serif}
-.section-head p{margin:0;color:var(--muted);font-size:.83rem}
+/* Sections */
+.section{margin-top:30px}
+.section-head{
+  display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:13px
+}
+.section-title{display:flex;align-items:center;gap:11px}
+.section-icon{
+  width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:#fff;
+  display:grid;place-items:center;color:var(--accent);box-shadow:0 1px 0 rgba(255,255,255,.7) inset
+}
+.section-icon svg{
+  width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round
+}
+.section-head h2{
+  margin:0;font:700 1.5rem/1.05 Georgia, "Times New Roman", serif;color:#2a241d
+}
+.section-head p{
+  margin:0;color:var(--muted);font-size:.84rem
+}
 
-.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:13px}
-.card{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:17px;overflow:hidden;
-box-shadow:var(--shadow);display:grid;grid-template-columns:142px minmax(0,1fr);min-height:198px}
-.content{padding:15px;display:flex;flex-direction:column}
-.type{font-size:.69rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
-.meta{color:var(--muted);font-size:.75rem;margin-top:3px}
-.card h3{margin:6px 0;font:700 1.07rem/1.23 Georgia,"Times New Roman",serif}
-.desc{margin:0;color:var(--muted);line-height:1.45;font-size:.85rem}
-.why{margin-top:9px;font-size:.81rem;line-height:1.42}.why strong{color:var(--accent)}
-.action{margin-top:auto;padding-top:11px;font-weight:800;color:var(--accent);font-size:.85rem}.action:hover{text-decoration:underline}
+.grid{
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px
+}
+.card{
+  grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  box-shadow:var(--shadow);display:grid;grid-template-columns:142px minmax(0,1fr);min-height:198px
+}
+.content{padding:15px 15px 14px;display:flex;flex-direction:column}
+.type{
+  font-size:.69rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark)
+}
+.meta{color:var(--muted);font-size:.75rem;margin-top:4px}
+.card h3{
+  margin:6px 0 7px;font:700 1.1rem/1.22 Georgia, "Times New Roman", serif;color:#29231d
+}
+.desc{
+  margin:0;color:var(--muted);line-height:1.48;font-size:.86rem
+}
+.why{
+  margin-top:10px;font-size:.82rem;line-height:1.45;color:#544b42
+}
+.why strong{color:var(--accent-dark)}
+.action{
+  margin-top:auto;padding-top:12px;font-weight:800;color:var(--accent);font-size:.85rem
+}
+.action:hover{text-decoration:underline}
 
-footer{border-top:1px solid var(--line);padding:22px 0 34px;color:var(--muted);font-size:.8rem}
+/* Footer */
+footer{
+  border-top:1px solid var(--line);padding:18px 0 34px;color:var(--muted);font-size:.8rem
+}
+.footer-inner{
+  display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap
+}
+.footer-copy{line-height:1.45}
+.engine-mark{
+  display:inline-flex;align-items:center;gap:10px;white-space:nowrap;
+  padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.65)
+}
+.engine-symbol{
+  width:18px;height:18px;display:grid;place-items:center;border:1px solid var(--gold-soft);
+  border-radius:50%;color:var(--gold);font:700 12px/1 Georgia,serif
+}
+.engine-text{
+  display:flex;align-items:baseline;gap:8px
+}
+.engine-text .brand{
+  font:700 .86rem/1.1 Georgia,"Times New Roman",serif;color:#3f4f48;letter-spacing:.01em
+}
+.engine-text .descriptor{
+  font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#8a7c6a;font-weight:800
+}
 
 @media(max-width:800px){
- .hero-inner{grid-template-columns:1fr}.acts-mark{display:none}
- .start-items{grid-template-columns:1fr}.card{grid-column:span 12}
+  .hero-inner{grid-template-columns:1fr}
+  .acts-mark{display:none}
+  .start-items{grid-template-columns:1fr}
+  .card{grid-column:span 12}
 }
 @media(max-width:560px){
- .wrap{padding:0 16px}.hero-inner{padding-top:27px}
- h1{font-size:clamp(2rem,12vw,3.1rem)}
- .start{padding:15px;border-radius:17px}.start h2{font-size:1.3rem}.mini-media{width:55px;height:68px}
- .filters{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none}
- .filters::-webkit-scrollbar{display:none}.filter{white-space:nowrap;flex:0 0 auto}
- .section-head{align-items:flex-start;flex-direction:column;gap:6px}
- .card{grid-template-columns:100px minmax(0,1fr);min-height:162px}.card-media{width:100px;min-height:162px}
- .content{padding:12px}.card h3{font-size:.99rem}
- .desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:.81rem}.why{display:none}
+  .wrap{padding:0 16px}
+  .hero-inner{padding-top:28px}
+  h1{font-size:clamp(2rem,12vw,3.1rem)}
+  .start{padding:15px;border-radius:17px}
+  .start h2{font-size:1.32rem}
+  .mini-media{width:55px;height:68px}
+  .filters{
+    margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px;
+    overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none
+  }
+  .filters::-webkit-scrollbar{display:none}
+  .filter{white-space:nowrap;flex:0 0 auto}
+  .section-head{align-items:flex-start;flex-direction:column;gap:6px}
+  .card{grid-template-columns:100px minmax(0,1fr);min-height:162px}
+  .card-media{width:100px;min-height:162px}
+  .content{padding:12px}
+  .card h3{font-size:.99rem}
+  .desc{
+    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:.81rem
+  }
+  .why{display:none}
+  .footer-inner{align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
 <body>
 <header class="hero">
-<div class="wrap hero-inner">
- <div>
-  <div class="eyebrow">Aprofundamento de Formação</div>
-  <h1 id="page-title">Atos dos Apóstolos</h1>
-  <p class="lead" id="page-subtitle">Igreja nascente, missão, Espírito Santo e expansão do Evangelho</p>
-  <div class="context-row"><select id="context-select" aria-label="Selecione uma formação"></select></div>
- </div>
- <div class="acts-mark" aria-hidden="true">
-  <svg viewBox="0 0 260 200">
-   <path class="sea" d="M14 126 C52 104 77 117 100 99 S152 79 184 95 S225 104 248 83"/>
-   <path class="sea" d="M7 143 C48 121 79 136 110 116 S164 96 198 111 S231 118 254 101"/>
-   <path class="route" d="M34 148 C72 121 86 98 112 95 C145 91 150 64 184 61 C204 59 219 47 230 28"/>
-   <circle class="city" cx="34" cy="148" r="4"/><text class="label" x="42" y="152">Jerusalém</text>
-   <circle class="city" cx="112" cy="95" r="4"/><text class="label" x="120" y="99">Antioquia</text>
-   <circle class="city" cx="184" cy="61" r="4"/><text class="label" x="192" y="65">Grécia</text>
-   <circle class="city" cx="230" cy="28" r="4"/><text class="label" x="190" y="20">Roma</text>
-   <line class="cross" x1="218" y1="138" x2="218" y2="177"/><line class="cross" x1="205" y1="151" x2="231" y2="151"/>
-  </svg>
- </div>
-</div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Aprofundamento de Formação</div>
+      <h1 id="page-title">Atos dos Apóstolos</h1>
+      <p class="lead" id="page-subtitle">Igreja nascente, missão, Espírito Santo e expansão do Evangelho</p>
+      <div class="context-row"><select id="context-select" aria-label="Selecione uma formação"></select></div>
+    </div>
+    <div class="acts-mark" aria-hidden="true">
+      <svg viewBox="0 0 260 200">
+        <path class="sea" d="M14 126 C52 104 77 117 100 99 S152 79 184 95 S225 104 248 83"/>
+        <path class="sea" d="M7 143 C48 121 79 136 110 116 S164 96 198 111 S231 118 254 101"/>
+        <path class="route" d="M34 148 C72 121 86 98 112 95 C145 91 150 64 184 61 C204 59 219 47 230 28"/>
+        <circle class="city" cx="34" cy="148" r="4"/><text class="label" x="42" y="152">Jerusalém</text>
+        <circle class="city" cx="112" cy="95" r="4"/><text class="label" x="120" y="99">Antioquia</text>
+        <circle class="city" cx="184" cy="61" r="4"/><text class="label" x="192" y="65">Grécia</text>
+        <circle class="city" cx="230" cy="28" r="4"/><text class="label" x="190" y="20">Roma</text>
+        <line class="cross" x1="218" y1="138" x2="218" y2="177"/><line class="cross" x1="205" y1="151" x2="231" y2="151"/>
+      </svg>
+    </div>
+  </div>
 </header>
 
 <main class="wrap">
-<section class="start">
- <div class="start-label">Comece por aqui</div>
- <h2>Três bons próximos passos</h2>
- <p>Se você acabou de chegar pela formação, estas são boas opções para continuar.</p>
- <div id="start-items" class="start-items"></div>
-</section>
+  <section class="start">
+    <div class="start-label">Comece por aqui</div>
+    <h2>Três bons próximos passos</h2>
+    <p>Se você acabou de chegar pela formação, estas são boas opções para continuar.</p>
+    <div id="start-items" class="start-items"></div>
+  </section>
 
-<div class="filters">
- <button class="filter active" data-type="Todos">Todos</button>
- <button class="filter" data-type="Filme">Filmes</button>
- <button class="filter" data-type="Série">Séries</button>
- <button class="filter" data-type="Documentário">Documentários</button>
- <button class="filter" data-type="Leitura">Leituras</button>
-</div>
-<div id="content"></div>
+  <div class="filters">
+    <button class="filter active" data-type="Todos">Todos</button>
+    <button class="filter" data-type="Filme">Filmes</button>
+    <button class="filter" data-type="Série">Séries</button>
+    <button class="filter" data-type="Documentário">Documentários</button>
+    <button class="filter" data-type="Leitura">Leituras</button>
+  </div>
+
+  <div id="content"></div>
 </main>
-<footer><div class="wrap">Conteúdo de apoio para formação. Alguns recursos externos podem exigir assinatura ou ter disponibilidade regional.</div></footer>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-copy">Conteúdo de apoio para formação. Alguns recursos externos podem exigir assinatura ou ter disponibilidade regional.</div>
+    <div class="engine-mark" aria-label="Via Cordis Content Engine">
+      <span class="engine-symbol">✦</span>
+      <span class="engine-text">
+        <span class="brand">Via Cordis Content Engine</span>
+        <span class="descriptor">engine</span>
+      </span>
+    </div>
+  </div>
+</footer>
 
 <script>
-const APP_VERSION="atos-v3-20260928";
+const APP_VERSION="atos-v4-20260928";
 const state={rows:[],context:null,type:"Todos"};
 const typeOrder=["Filme","Série","Documentário","Leitura"];
 const labels={
- "Filme":["Filmes","Narrativas para entrar na história."],
- "Série":["Séries","Conteúdos para acompanhar personagens e acontecimentos."],
- "Documentário":["Documentários","Contexto histórico, geográfico e doutrinal."],
- "Leitura":["Leituras","Textos para voltar à fonte e aprofundar."]
+  "Filme":["Filmes","Narrativas para entrar na história."],
+  "Série":["Séries","Conteúdos para acompanhar personagens e acontecimentos."],
+  "Documentário":["Documentários","Contexto histórico, geográfico e doutrinal."],
+  "Leitura":["Leituras","Textos para voltar à fonte e aprofundar."]
 };
 const icons={
- "Filme":`<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5l2 4M13 5l2 4M19 5l2 4"/></svg>`,
- "Série":`<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>`,
- "Documentário":`<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5L21 21M9 9l5 2-5 2z"/></svg>`,
- "Leitura":`<svg viewBox="0 0 24 24"><path d="M4 5.5C7 4.5 9.5 5 12 7v12c-2.5-2-5-2.5-8-1.5z"/><path d="M20 5.5C17 4.5 14.5 5 12 7v12c2.5-2 5-2.5 8-1.5z"/></svg>`
+  "Filme":`<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5l2 4M13 5l2 4M19 5l2 4"/></svg>`,
+  "Série":`<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>`,
+  "Documentário":`<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5L21 21M9 9l5 2-5 2z"/></svg>`,
+  "Leitura":`<svg viewBox="0 0 24 24"><path d="M4 5.5C7 4.5 9.5 5 12 7v12c-2.5-2-5-2.5-8-1.5z"/><path d="M20 5.5C17 4.5 14.5 5 12 7v12c2.5-2 5-2.5 8-1.5z"/></svg>`
 };
+
 function parseCSV(text){
- text=text.replace(/^\uFEFF/,"");const rows=[];let row=[],field="",q=false;
- for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];
- if(c=='"'&&q&&n=='"'){field+='"';i++}else if(c=='"'){q=!q}else if(c==','&&!q){row.push(field);field=""}
- else if((c=='\n'||c=='\r')&&!q){if(c=='\r'&&n=='\n')i++;row.push(field);field="";if(row.some(v=>v.trim()!=""))rows.push(row);row=[]}else field+=c}
- if(field.length||row.length){row.push(field);rows.push(row)}
- const head=rows.shift().map(x=>x.trim());return rows.map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||"").trim()])))
+  text=text.replace(/^\uFEFF/,"");
+  const rows=[]; let row=[], field="", q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i], n=text[i+1];
+    if(c=='"' && q && n=='"'){field+='"'; i++}
+    else if(c=='"'){q=!q}
+    else if(c==',' && !q){row.push(field); field=""}
+    else if((c=='\n'||c=='\r') && !q){
+      if(c=='\r'&&n=='\n') i++;
+      row.push(field); field="";
+      if(row.some(v=>v.trim()!="")) rows.push(row);
+      row=[];
+    } else field+=c
+  }
+  if(field.length||row.length){row.push(field); rows.push(row)}
+  const head=rows.shift().map(x=>x.trim());
+  return rows.map(r=>Object.fromEntries(head.map((h,i)=>[h,(r[i]||"").trim()])))
 }
 function esc(s=""){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function contexts(){const m=new Map();state.rows.forEach(r=>{if(!m.has(r.contexto_id))m.set(r.contexto_id,{nome:r.contexto_nome,subtitulo:r.contexto_subtitulo})});return m}
-function updateUrl(){const u=new URL(location.href);u.searchParams.set("contexto",state.context);history.replaceState(null,"",u)}
-function mediaClass(r){return r.tipo==="Leitura"?(r.titulo.includes("Catho+")?"app":"reading"):""}
-function media(r,cls){
- const url=r.thumbnail_url||"";
- return `<div class="media-box ${cls} ${mediaClass(r)}">
- <img src="${esc(url)}" alt="${esc(r.titulo)}" loading="lazy" referrerpolicy="no-referrer"
- onerror="this.parentElement.classList.add('failed')">
- <div class="fallback">${esc(r.tipo)}<br>${esc(r.titulo)}</div></div>`;
+function contexts(){
+  const m=new Map();
+  state.rows.forEach(r=>{if(!m.has(r.contexto_id))m.set(r.contexto_id,{nome:r.contexto_nome,subtitulo:r.contexto_subtitulo})});
+  return m
+}
+function updateUrl(){
+  const u=new URL(location.href); u.searchParams.set("contexto",state.context); history.replaceState(null,"",u)
+}
+function mediaClass(r){return r.tipo==="Leitura" ? (r.titulo.includes("Catho+") ? "app" : "reading") : ""}
+function media(r, cls){
+  const url=r.thumbnail_url||"";
+  return `<div class="media-box ${cls} ${mediaClass(r)}">
+    <img src="${esc(url)}" alt="${esc(r.titulo)}" loading="lazy" referrerpolicy="no-referrer"
+         onerror="this.parentElement.classList.add('failed')">
+    <div class="fallback">${esc(r.tipo)}<br>${esc(r.titulo)}</div>
+  </div>`
 }
 function card(r){
- const meta=[r.ano,r.duracao].filter(Boolean).join(" • ");
- return `<article class="card">${media(r,"card-media")}<div class="content">
- <div class="type">${esc(r.tipo)}</div><div class="meta">${esc(meta)}</div>
- <h3>${esc(r.titulo)}</h3><p class="desc">${esc(r.descricao)}</p>
- <div class="why"><strong>Por que vale a pena:</strong> ${esc(r.porque)}</div>
- ${r.url?`<a class="action" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Abrir recurso →</a>`:""}
- </div></article>`;
+  const meta=[r.ano,r.duracao].filter(Boolean).join(" • ");
+  return `<article class="card">
+    ${media(r,"card-media")}
+    <div class="content">
+      <div class="type">${esc(r.tipo)}</div>
+      <div class="meta">${esc(meta)}</div>
+      <h3>${esc(r.titulo)}</h3>
+      <p class="desc">${esc(r.descricao)}</p>
+      <div class="why"><strong>Por que vale a pena:</strong> ${esc(r.porque)}</div>
+      ${r.url ? `<a class="action" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">Abrir recurso →</a>` : ""}
+    </div>
+  </article>`
 }
 function renderStart(rows){
- const out=[];for(const t of ["Série","Filme","Leitura"]){const r=rows.find(x=>x.tipo===t&&(x.destaque||"").toLowerCase()==="sim");if(r)out.push(r)}
- const featured=[...out,...rows.filter(r=>(r.destaque||"").toLowerCase()==="sim")].filter((r,i,a)=>a.indexOf(r)===i).slice(0,3);
- document.getElementById("start-items").innerHTML=featured.map(r=>`<a class="start-card" href="${esc(r.url||"#")}" target="_blank" rel="noopener noreferrer">
- ${media(r,"mini-media")}<div><strong>${esc(r.titulo)}</strong><span>${esc(r.tipo)}</span></div></a>`).join("")
+  const out=[];
+  for(const t of ["Série","Filme","Leitura"]){
+    const r=rows.find(x=>x.tipo===t && (x.destaque||"").toLowerCase()==="sim");
+    if(r) out.push(r);
+  }
+  const featured=[...out,...rows.filter(r=>(r.destaque||"").toLowerCase()==="sim")]
+    .filter((r,i,a)=>a.indexOf(r)===i).slice(0,3);
+  document.getElementById("start-items").innerHTML=featured.map(r=>`
+    <a class="start-card" href="${esc(r.url||"#")}" target="_blank" rel="noopener noreferrer">
+      ${media(r,"mini-media")}
+      <div><strong>${esc(r.titulo)}</strong><span>${esc(r.tipo)}</span></div>
+    </a>`).join("")
 }
 function render(){
- const ctx=contexts().get(state.context);document.getElementById("page-title").textContent=ctx?.nome||"Aprofundamento de Formação";
- document.getElementById("page-subtitle").textContent=ctx?.subtitulo||"Uma seleção de conteúdos para continuar a formação.";
- const all=state.rows.filter(r=>r.contexto_id===state.context).sort((a,b)=>Number(a.ordem||999)-Number(b.ordem||999));renderStart(all);
- const filtered=all.filter(r=>state.type==="Todos"||r.tipo===state.type),groups=state.type==="Todos"?typeOrder:[state.type];
- document.getElementById("content").innerHTML=groups.map(type=>{const items=filtered.filter(r=>r.tipo===type);if(!items.length)return "";
- return `<section class="section"><div class="section-head"><div class="section-title">
- <span class="section-icon">${icons[type]}</span><h2>${labels[type][0]}</h2></div><p>${labels[type][1]}</p></div>
- <div class="grid">${items.map(card).join("")}</div></section>`}).join("")
+  const ctx=contexts().get(state.context);
+  document.getElementById("page-title").textContent=ctx?.nome||"Aprofundamento de Formação";
+  document.getElementById("page-subtitle").textContent=ctx?.subtitulo||"Uma seleção de conteúdos para continuar a formação.";
+  document.title=`${ctx?.nome||"Formação"} | Aprofundamento de Formação`;
+
+  const all=state.rows.filter(r=>r.contexto_id===state.context)
+    .sort((a,b)=>Number(a.ordem||999)-Number(b.ordem||999));
+  renderStart(all);
+
+  const filtered=all.filter(r=>state.type==="Todos"||r.tipo===state.type);
+  const groups=state.type==="Todos"?typeOrder:[state.type];
+
+  document.getElementById("content").innerHTML=groups.map(type=>{
+    const items=filtered.filter(r=>r.tipo===type);
+    if(!items.length) return "";
+    return `<section class="section">
+      <div class="section-head">
+        <div class="section-title">
+          <span class="section-icon">${icons[type]}</span>
+          <h2>${labels[type][0]}</h2>
+        </div>
+        <p>${labels[type][1]}</p>
+      </div>
+      <div class="grid">${items.map(card).join("")}</div>
+    </section>`
+  }).join("")
 }
 async function load(){
- const res=await fetch(`conteudos.csv?v=${APP_VERSION}`,{cache:"no-store"});if(!res.ok)throw new Error("CSV");
- state.rows=parseCSV(await res.text());const cs=contexts(),sel=document.getElementById("context-select");
- sel.innerHTML=[...cs].map(([id,v])=>`<option value="${esc(id)}">${esc(v.nome)}</option>`).join("");
- const req=new URLSearchParams(location.search).get("contexto");state.context=cs.has(req)?req:[...cs.keys()][0];sel.value=state.context;updateUrl();
- sel.addEventListener("change",e=>{state.context=e.target.value;updateUrl();render()});
- document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");state.type=b.dataset.type;render()}));
- render()
+  const res=await fetch(`conteudos.csv?v=${APP_VERSION}`,{cache:"no-store"});
+  if(!res.ok) throw new Error("CSV");
+  state.rows=parseCSV(await res.text());
+  const cs=contexts(), sel=document.getElementById("context-select");
+  sel.innerHTML=[...cs].map(([id,v])=>`<option value="${esc(id)}">${esc(v.nome)}</option>`).join("");
+  const req=new URLSearchParams(location.search).get("contexto");
+  state.context=cs.has(req)?req:[...cs.keys()][0];
+  sel.value=state.context;
+  updateUrl();
+  sel.addEventListener("change",e=>{state.context=e.target.value;updateUrl();render()});
+  document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+    document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    state.type=b.dataset.type;
+    render();
+  }));
+  render()
 }
-load().catch(e=>{document.getElementById("content").innerHTML='<div style="padding:20px;border:1px solid #ddd;border-radius:14px">Não foi possível carregar a base de conteúdos. Atualize a página ou verifique se <strong>conteudos.csv</strong> foi publicado junto com este arquivo.</div>'});
+load().catch(()=>{
+  document.getElementById("content").innerHTML='<div style="padding:20px;border:1px solid #ddd;border-radius:14px">Não foi possível carregar a base de conteúdos. Atualize a página ou verifique se <strong>conteudos.csv</strong> foi publicado junto com este arquivo.</div>'
+});
 </script>
-</body></html>
+</body>
+</html>
