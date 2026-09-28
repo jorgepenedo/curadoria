@@ -1,2 +1,2 @@
-﻿contexto_id,contexto_nome,contexto_subtitulo,tipo,titulo,ano,duracao,autor_produtor,descricao,porque,destaque,ordem,url,thumbnail
-novo-contexto,Nome da nova formação,Breve subtítulo,Filme,Título do recurso,2026,1h30,Autor / Produtor,Descrição curta do recurso.,Razão para recomendar.,não,1,https://exemplo.com,assets/thumbnails/exemplo.svg
+﻿contexto_id,contexto_nome,contexto_subtitulo,tipo,titulo,ano,duracao,autor_produtor,descricao,porque,destaque,ordem,url,thumbnail_url,acesso,servico,servico_url,idioma_original,portugues,pt_tipo,gratis_rank,acao
+novo-contexto,Nome da formação,Subtítulo,Filme,Título,2026,1h30,Autor / Produtor,Descrição curta,Razão pastoral,não,10,https://exemplo.com,https://exemplo.com/capa.jpg,Gratuito,YouTube,https://youtube.com,🇧🇷 Português,Sim,Dublado / legendado,1,Assistir

@@ -1,12 +1,17 @@
-# Atos dos Apóstolos — V4
+# Atos dos Apóstolos — V5
 
-Refinamentos:
-- assinatura discreta no rodapé: Via Cordis Content Engine;
-- manutenção do texto do rodapé;
-- ícones temáticos à esquerda dos títulos de seção;
-- refinamento de tipografia, cores e acabamento;
-- fundo creme preservado.
+Ajustes desta versão:
+- uso dos 4 ícones fornecidos pelo usuário nas seções;
+- prioridade visual e de ordenação para acesso gratuito / português;
+- badges de acesso, idioma original e disponibilidade em português;
+- informação explícita sobre dublado / legendado / não identificado;
+- itens com assinatura, compra ou páginas informativas aparecem ao final de cada lista;
+- rodapé com Via Cordis Content Engine mantido.
 
 Para deploy:
-substitua `index.html` e `conteudos.csv` juntos.
+substitua juntos:
+- index.html
+- conteudos.csv
+- pasta icons/
+
 Depois faça recarga forçada no navegador.
