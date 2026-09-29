@@ -1,17 +1,21 @@
-# Atos dos Apóstolos — V5
+# Atos dos Apóstolos — V7
 
-Ajustes desta versão:
-- uso dos 4 ícones fornecidos pelo usuário nas seções;
-- prioridade visual e de ordenação para acesso gratuito / português;
-- badges de acesso, idioma original e disponibilidade em português;
-- informação explícita sobre dublado / legendado / não identificado;
-- itens com assinatura, compra ou páginas informativas aparecem ao final de cada lista;
-- rodapé com Via Cordis Content Engine mantido.
+Versão completa e verificada.
 
-Para deploy:
-substitua juntos:
+Inclui:
 - index.html
 - conteudos.csv
-- pasta icons/
+- MODELO_NOVA_FORMACAO.csv
+- pasta icons/ com os quatro ícones fornecidos pelo usuário
+- README.md
 
-Depois faça recarga forçada no navegador.
+Destaques da V7:
+- Rossellini
+- São Paulo
+- vídeo gratuito no YouTube com legenda automática
+- prioridade para recursos gratuitos
+- compras e assinaturas ao final de cada seção
+- badges de acesso, idioma e português
+- Via Cordis Content Engine no rodapé
+
+Deploy: substitua todo o conteúdo do repositório por esta versão ou, no mínimo, atualize index.html, conteudos.csv e a pasta icons/.
